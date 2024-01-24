@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-end mb-3">
         <h1 class="pb-1">Listado de profesiones</h1>
     </div>
-
+    @includeWhen($view ?? '' == 'index', 'professions._filtersprofession')
     @if (isset($professions) && $professions->isNotEmpty())
         <table class="table">
             <thead class="thead-dark">
