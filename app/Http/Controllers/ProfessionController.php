@@ -9,7 +9,7 @@ class ProfessionController extends Controller
     public function index()
     {
         return view('professions.index', [
-            'professions' => Profession::withCount('profiles')->orderBy('title')->get(),
+            'professions' => Profession::withCount('profiles')->orderBy('title')->paginate(10),
         ]);
     }
 
