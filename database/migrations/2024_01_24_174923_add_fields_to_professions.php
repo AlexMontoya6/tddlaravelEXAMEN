@@ -14,7 +14,7 @@ class AddFieldsToProfessions extends Migration
     public function up()
     {
         Schema::table('professions', function (Blueprint $table) {
-            $table->string('description')->after('title');
+            $table->text('description')->after('title');
             $table->string('education_level');
             $table->integer('salary');
             $table->string('sector');
