@@ -11,7 +11,22 @@ use Tests\TestCase;
 class ShowProfessionsTest extends TestCase
 {
     use RefreshDatabase;
+
     public function test_shows_profession_list()
+    {
+        factory(Profession::class)->create(['title' => 'Diseñador']);
+        factory(Profession::class)->create(['title' => 'Programador']);
+        factory(Profession::class)->create(['title' => 'Administrador']);
+
+        $this->get('profesiones')
+            ->assertStatus(200)
+            ->assertSeeInOrder([
+                'Administrador',
+                'Diseñador',
+                'Programador',
+            ]);
+    }
+    public function test_profession_pagination()
     {
         $professions = factory(Profession::class, 15)->create();
 
