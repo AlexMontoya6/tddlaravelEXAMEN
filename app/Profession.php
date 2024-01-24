@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profession extends Model
 {
-    protected $fillable = ['title'];
+    protected $fillable = ['title', 'description', 'education_level', 'salary', 'sector', 'experience_required'];
 
     public function profiles()
     {
